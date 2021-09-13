@@ -14,16 +14,19 @@ const showProducts = (products) => {
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
-      </div>
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h4> <strong>Total Rating: ${product.rating.rate}</strong> <strong> Total Count: ${product.rating.count}</strong> </h4>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" onclick="loadDetails(${product.id})" class="btn btn-danger">Details</button></div>
-      `;
+                       <div>
+                         <img class="product-image" src=${image}></img>
+                       </div>
+                            <h3>${product.title}</h3>
+                            <p>Category: ${product.category}</p>
+                            <p> <P>Total Rating: ${product.rating.rate}</P> 
+                            <P> Total Count: ${product.rating.count} </p>
+                            <h2>Price: $ ${product.price}</h2>
+                        <div class="product-footer"> 
+                           <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+                           <button id="details-btn" onclick="loadDetails(${product.id})" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Details</button>
+                        </div>
+                      </div>`;
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -83,9 +86,28 @@ const updateTotal = () => {
 
 // display products details
 const loadDetails = async data => {
-  console.log(data)
+  
   const url = `https://fakestoreapi.com/products/${data}`;
   const res = await fetch(url);
   const product = await res.json();
+  console.log(product)
    displayProductDetails(product);
+}
+
+const displayProductDetails = product => {
+  const detailsDiv  = document.getElementById('details');
+  detailsDiv.innerHTML = '';
+  const div = document.createElement("div");
+  div.classList.add('details')
+    div.classList.add("product");
+    div.innerHTML = `<div >
+                        <h3>${product.title}</h3>
+                        <p>Category: ${product.category}</p>
+                        <p> Description: ${product.description}
+                        <button onclick="clearDetails()" class="btn btn-danger  ">Closed Details</button>
+                      </div>`;
+      detailsDiv.appendChild(div)
+}
+const clearDetails = () => {
+  location.reload();
 }
