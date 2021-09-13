@@ -17,10 +17,10 @@ const showProducts = (products) => {
                        <div>
                          <img class="product-image" src=${image}></img>
                        </div>
-                            <h3>${product.title}</h3>
+                            <h3>${product.title.slice(0, 25)}</h3>
                             <p>Category: ${product.category}</p>
-                            <p> <P>Total Rating: ${product.rating.rate}</P> 
-                            <P> Total Count: ${product.rating.count} </p>
+                            <p class="d-flex justify-content-around"> <span><i class="fas fa-star"></i> ${product.rating.rate}</span><span> <i class="fas fa-user"></i> ${product.rating.count}</span></P> 
+                            
                             <h2>Price: $ ${product.price}</h2>
                         <div class="product-footer"> 
                            <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
@@ -42,7 +42,7 @@ const addToCart = (id, price) => {
 
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
-  const converted = parseInt(element);
+  const converted = parseFloat(element);
   return converted;
 };
 
@@ -81,7 +81,7 @@ const updateTotal = () => {
   const grandTotal =
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
-  document.getElementById("total").innerText = grandTotal;
+  document.getElementById("total").innerText =Math.abs(grandTotal).toFixed(2);
 };
 
 // display products details
