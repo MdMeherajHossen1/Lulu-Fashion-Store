@@ -6,7 +6,8 @@ body {
 }
 .search-field {
   border: none;
-  border-radius: 50px;
+  width: 50%;
+  margin: 50px auto;
   padding: 5px;
   outline: none;
 }
@@ -14,15 +15,8 @@ body {
   outline: none;
   border: none;
 }
-.search-box {
-  border: 1px solid rgb(3, 118, 211);
-  width: 281px;
-  border-radius: 5px;
-  margin: auto;
-  margin-top: 50px;
-  border-right: none;
-}
-.search-button {
+
+.search-button { 
   padding: 10px 50px;
   border-radius: 25px;
   margin-left: 20px;
@@ -44,7 +38,7 @@ body {
   position: relative;
   border-radius: 10px;
   padding: 10px;
-  transition: 0.6s;
+  
 }
 .product-footer{
   position: absolute;
@@ -53,9 +47,10 @@ body {
   margin-left: 50px;
 }
 .single-product:hover {
-  box-shadow: 4px 4px 7px gray;
+  transition: 0.6s;   
+  box-shadow: 4px 4px 7px wheat;
   border-radius: 10px;
-  border: 1px solid black;
+  border: 1px solid blue;
 }
 .fa-star{
   color: gold;

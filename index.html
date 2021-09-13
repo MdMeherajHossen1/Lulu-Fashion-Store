@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  
+
   <!-- google Montserrat  font  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,18 +20,18 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+    <h1 class="text-dark text-center mt-5">Welcome to LULU Store </h1>
+  </header>
   <main class="main">
     <div class="search-field">
-      <div class="search-box">
-        <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
-          autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
-        </button>
-      </div>
+      <form class="d-flex">
+        <input class="form-control rounded-pill border-1 border-warning" type="search" placeholder="Search your favarite items   " aria-label="Search">
+        <button class="btn btn-success search-btn" type="submit" onclick="loadProducts()">Search</button>
+      </form>
     </div>
   </div>
+  
     <!--   display single product details -->
     <section class= "row g-5" >
       <div id="details"></div>
