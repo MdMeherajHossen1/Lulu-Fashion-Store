@@ -30,6 +30,8 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// count total products item
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -84,7 +86,7 @@ const updateTotal = () => {
   document.getElementById("total").innerText =Math.abs(grandTotal).toFixed(2);
 };
 
-// display products details
+// load products details
 const loadDetails = async data => {
   
   const url = `https://fakestoreapi.com/products/${data}`;
@@ -93,7 +95,7 @@ const loadDetails = async data => {
   console.log(product)
    displayProductDetails(product);
 }
-
+// display product details in the UI
 const displayProductDetails = product => {
   const detailsDiv  = document.getElementById('details');
   detailsDiv.innerHTML = '';
@@ -108,6 +110,7 @@ const displayProductDetails = product => {
                       </div>`;
       detailsDiv.appendChild(div)
 }
+// clear product details
 const clearDetails = () => {
   location.reload();
 }
